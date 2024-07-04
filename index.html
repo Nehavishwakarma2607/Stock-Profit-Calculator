@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        body{
+            background-color: rgb(53, 53, 53);
+            font-family: arial,sans-serif;
+
+        }
+
+        h1{
+            text-align: center;
+            font-size: 2.7rem;
+            color: rgb(197, 194, 191);
+
+        }
+
+        h2{
+            font-weight:800;
+            text-align: center;
+            font-size: 2.5rem;
+            color: rgb(53, 53, 53);
+        }
+
+        .boxes{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .box {
+            background-color: #6c845e;
+            width: 30vw; /* Adjust the percentage as per your design */
+            max-width: 300px; /* Optional: set a maximum width for larger screens */
+            border: 0px solid white;
+            border-radius: 20px;
+            padding: 1.4rem;
+            margin: 1.3rem;
+        }
+        
+   
+        
+.box:hover{
+    box-shadow: 1px 3px 10px rgb(157, 154, 154);
+
+}
+
+        .buttons{
+            
+            display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: auto 0;
+
+    }
+
+    .buttonstyle{
+        background-color: hsl(0, 0%, 83%);
+        margin: 1.5rem;
+        font-size: 2rem;
+        border-radius: 2rem;
+        padding: 1.1rem;
+    }
+
+    .buttonstyle:hover{
+        box-shadow: 1px 3px 6px rgb(107, 105, 105);
+cursor: pointer;
+background-color: hsl(0, 0%, 60%);
+    }
+
+
+    label{
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: rgb(229, 232, 232);
+    }
+
+input{
+    font-size: 1rem;
+    width: 26vw;
+    max-width: 18vw;
+    border-radius: 20px;
+    padding: 15px;
+    margin-top:10px;
+    margin-bottom: 30px;
+}
+
+.profitPara{
+    font-size: 1.5rem;
+        font-weight: bold;
+        color: rgb(229, 232, 232);
+}
+
+#profit,#roi,#breakEvenPrice{
+    font-size: 2.5rem;
+    font-weight: 600;
+    display: none;
+    }
+
+    #shares{
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @media (max-width: 768px) {
+        .boxes {
+            flex-direction: column;
+            align-items: center;
+        }
+        .box {
+            width: 80%;
+            margin: 1rem 0;
+        }
+        .buttonstyle {
+            margin: 1rem;
+        }
+        input {
+            width: 70vw;
+            max-width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .box {
+            width: 80vw; /* Adjust for smaller screens */
+            max-width: 100%; /* Ensures it takes full width on smaller screens */
+        }
+
+.edu{
+    width: 50vw;
+}
+
+.edu h1{
+    font-size: 1rem;
+}
+
+.edu p{
+    width:60vw;
+    max-width: 100%;
+}
+
+    }
+
+#education{
+    max-width:100%;
+    padding: 2rem;
+    margin: 0;
+    background-color: rgb(37, 35, 35);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.edu{
+    border: 1px solid rgb(94, 96, 94);
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    background-color: rgb(79, 76, 76);
+    font-size: 1.5rem;
+    box-shadow: 1px 1px 3px rgb(157, 154, 154);
+}
+
+.edu h1{
+font-size: 3rem;
+color: whitesmoke;
+
+}
+
+.edu p{
+    font-style: italic;
+    color: azure;
+    font-size: 1.4rem;
+    line-height: 3.2rem;
+}
+
+#education h2{
+    color: aliceblue;
+    font-size:4rem;
+    font-weight: 700;
+}
+
+
+
+    </style>
+
+    <h1>Stock Profit Calculator</h1>
+
+    <div id="shares">
+        <label for="noOfShares">Number of Shares</label>
+        <input type="text" name="noOfShares" id="noOfShares">
+    </div>
+
+    <div class="boxes">
+        <div id="buyInfo" class="box">
+<h2>BUY</h2>
+<label for="buyPrice">Buy Price</label><br>
+<input type="text" class="ip" name="buyPrice" id="buyPrice"><br>
+<label for="buyCommission">Buy Commission</label><br>
+<input type="text" class="ip" name="buyCommission" id="buyCommission"><br>
+
+
+        </div>
+        <div id="sellInfo" class="box">
+            <h2>SELL</h2>
+            <label for="sellPrice">Sell Price</label><br>
+            <input type="text" class="ip" name="sellPrice" id="sellPrice"><br>
+            <label for="sellCommission">Sell Commission</label><br>
+            <input type="text" class="ip" name="sellCommission" id="sellCommission"><br>
+          
+                    </div>
+
+                    <div id="profitInfo" class="box">
+                        <h2>PROFIT</h2>
+                        <p class="profitPara">Profit</p>
+                        <p id="profit">100</p>
+                        <p class="profitPara">ROI (%)</p>
+                        <p id="roi">10%</p>
+                        <p class="profitPara">Break Even Price</p>
+                        <p id="breakEvenPrice">100</p>
+                                </div>
+    </div>
+    <div class="buttons">
+        <button class="buttonstyle" id="calcBtn" >Calculate</button>
+        <button class="buttonstyle" id="resetBtn" >Reset</button>
+    </div>
+
+<div id="education">
+    <h2>💡Tooltips</h2>
+    <div class="edu">
+<h1>Profit</h1>
+        <p>The amount of money you made from the trade.
+            <br>Profit=(Selling Price*No of shares - Selling Commission)-(Buying Price*No of shares + Buying Commission)
+        </p>
+    </div>
+    <div class="edu">
+        <h1>ROI</h1>
+
+        <p>The percentage of profit you made from the trade.
+            <br>ROI=(Profit/(Buying Price*No of shares + Buying Commission))*100
+        </p>
+    </div>
+    <div class="edu">
+        <h1>Break Even Price</h1>
+        <p>The price at which you would break even on the trade.
+            <br>Break Even Price=(Buy Price* No Of Shares + Buy Commission + Sell Commission)/No Of Shares
+        </p>
+    </div>
+</div>
+
+
+   <script>
+        const calcBtn = document.getElementById("calcBtn");
+        const resetBtn = document.getElementById("resetBtn");
+    
+        calcBtn.addEventListener("click", event => {
+            // Fetching input values
+            const noOfShares = parseInt(document.getElementById("noOfShares").value);
+            const buyPrice = parseFloat(document.getElementById("buyPrice").value);
+            const buyCommission = parseFloat(document.getElementById("buyCommission").value);
+    
+            // Calculating netBuyPrice
+            const netBuyPrice = (noOfShares * buyPrice) + buyCommission;
+            // Fetching sell input values
+            const sellPrice = parseFloat(document.getElementById("sellPrice").value);
+            const sellCommission = parseFloat(document.getElementById("sellCommission").value);
+    
+            // Calculating netSellPrice
+            const netSellPrice = (noOfShares * sellPrice) - sellCommission;
+    
+            // Calculating profit
+            const profit = netSellPrice - netBuyPrice;
+            document.getElementById("profit").textContent = profit.toFixed(2);
+    
+            // Displaying profit and ROI
+            document.getElementById("profit").style.display = "block";
+            document.getElementById("roi").textContent = ((profit / netBuyPrice) * 100).toFixed(2) + "%";
+            document.getElementById("roi").style.display="block"
+            document.getElementById("breakEvenPrice").textContent=(buyPrice*noOfShares+buyCommission+sellCommission)/noOfShares
+            document.getElementById("breakEvenPrice").style.display="block"
+            
+        });
+    
+        resetBtn.addEventListener("click", event => {
+            reset();
+        });
+    
+        function reset() {
+            // Clear all input fields and results
+            document.getElementById("noOfShares").value = "";
+            document.getElementById("buyPrice").value = "";
+            document.getElementById("buyCommission").value = "";
+            document.getElementById("sellPrice").value = "";
+            document.getElementById("sellCommission").value = "";
+   
+            document.getElementById("profit").style.display = "none"; 
+            document.getElementById("roi").style.display = "none";
+            document.getElementById("breakEvenPrice").style.display="none"
+        
+        }
+
+        const eduHeadings = document.querySelectorAll(".edu h1");
+
+   </script>
+</body>
+</html>
